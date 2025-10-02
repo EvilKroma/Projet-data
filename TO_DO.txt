@@ -1,0 +1,5 @@
+- Choisir le jeu de données
+- Accéder aux donnés choisit via une API REST bien faite + requêtes dynamiques
+- Choisir les données à afficher
+- Créer la structure du dashboard (en python)
+- Afficher les données (a minima un histogramme et une représentation géolocalisée. Au moins un des graphiques doit être dynamique)
