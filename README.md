@@ -26,3 +26,10 @@ Le fichier README ;
 Le fichier requirements.txt ;
 
 La vidéo de démonstration du dashboard.
+
+
+# Données utilisées :
+
+Flight Status API de Air France KLM : https://developer.airfranceklm.com/products/api/flightstatus/api-reference
+
+L'API Flight Status fournit des informations sur les vols telles que : l'itinéraire du vol, les informations de départ et d'arrivée par étape, les emplacements des aéroports liés aux heures d'arrivée et de départ, les informations sur les irrégularités (retards, annulations, etc.).
