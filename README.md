@@ -29,4 +29,9 @@ La vidéo de démonstration du dashboard.
 
 
 # Données utilisées :
-AirLabs Data API : https://airlabs.co
+
+OpenAQ
+
+DOC : https://docs.openaq.org/about/about
+
+ENDPOINT : https://api.openaq.org/v3/locations/id
