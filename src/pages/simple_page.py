@@ -1,7 +1,7 @@
 """
 Page d'accueil simple affichant les informations d'une station
 """
-from dash import html, dcc, dash_table, Input, Output
+from dash import html, dcc, dash_table
 import pandas as pd
 from src.utils.get_data import fetch_station_data
 from config import DEFAULT_STATION_ID
@@ -37,10 +37,7 @@ def create_layout():
         create_data_tables()
     ])
 
-@Output('station-info', 'children')
-@Output('parameters-table', 'columns')
-@Output('parameters-table', 'data')
-@Input('station-input', 'value')
+# Les outputs et inputs seront définis dans le callback principal
 def update_station_info(station_id):
     if not station_id:
         return "Veuillez entrer un ID de station.", [], []

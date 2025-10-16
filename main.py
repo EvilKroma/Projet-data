@@ -1,4 +1,5 @@
 from dash import Dash, html
+from dash.dependencies import Input, Output
 from src.components.navbar import create_navbar
 from src.pages.simple_page import create_layout, update_station_info
 
@@ -12,8 +13,15 @@ app.layout = html.Div([
     create_layout()
 ])
 
-# Enregistrement du callback
-app.callback(update_station_info)
+# Enregistrement du callback pour mettre à jour le tableau
+@app.callback(
+    [Output('station-info', 'children'),
+     Output('parameters-table', 'columns'),
+     Output('parameters-table', 'data')],
+    Input('station-input', 'value')
+)
+def update_callback(value):
+    return update_station_info(value)
 
 if __name__ == "__main__":
     app.run(debug=True)
