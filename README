@@ -1,189 +1,38 @@
-# To-Do — Dashboard OpenAQ (Qualité de l’air)
+# Dashboard OpenAQ (Qualité de l'air)
 
-Ce document suit les tâches, exigences et points d’attention pour le projet de dashboard basé sur les données OpenAQ.
+Ce projet consiste à créer un dashboard interactif basé sur les données de qualité de l'air provenant de l'API OpenAQ.
 
-## Tâches générales
+## TODO général du projet
 
-- [x] Choisir le jeu de données (OpenAQ – qualité de l’air)
-- [x] Réussir à accéder aux données via l’API REST (requêtes dynamiques)
+- [x] Choisir le jeu de données (OpenAQ – qualité de l'air)
+- [x] Accéder aux données via l'API REST
 - [ ] Explorer et comprendre la structure des données (PM2.5, coordonnées, timestamps, etc.)
-- [ ] Bibliothèques
-    - [ ] Plotly pour la création du dashboard et la visualisation
-- [ ] Concevoir la structure du dashboard (carte, histogramme, filtres interactifs, encart d’infos)
-- [ ] Afficher les données
-    - [ ] Au moins un histogramme
-    - [ ] Une représentation géolocalisée (carte dynamique)
-- [ ] Rendre le dashboard interactif (changement de ville, pays ou période)
-- [ ] Préparer la documentation du projet (README, requirements.txt, explications, attribution OpenAQ)
-- [ ] Créer la vidéo de démonstration du dashboard final
-
-## Tâches techniques
-
-- [x] Mettre en place l’appel API
 - [ ] Nettoyer et organiser les données avec pandas (tri, moyenne, formatage des dates)
+- [ ] Concevoir la structure du dashboard (carte, histogramme, filtres interactifs, encart d'infos)
 - [ ] Créer les filtres interactifs (ville, pays, type de polluant, période)
 - [ ] Construire la carte géographique avec les stations (points colorés selon PM2.5)
 - [ ] Construire l’histogramme dynamique montrant la variation du PM2.5 dans le temps
 - [ ] Afficher les indicateurs clés : valeur actuelle, date de mise à jour, source, coordonnées
-- [ ] Assembler le tout dans le dashboard web
+- [ ] Assembler le tout dans le dashboard web (Dash/Plotly)
 - [ ] Tester l’interactivité et les mises à jour dynamiques
-- [ ] Structurer le dépôt GitHub (code propre, arborescence claire, documentation)
+- [ ] Préparer la documentation du projet (README, requirements.txt, explications, attribution OpenAQ)
+- [ ] Créer la vidéo de démonstration du dashboard final
 
-## Exigences du projet
+## Exigences et points d'attention
 
-### Choix du sujet
-
-- Choisir un sujet d'intérêt public (météo, environnement, etc.) et le faire valider par l'enseignant.
-
-### Récupération des données
-
-- Identifier une source de données publiques Open Data.
-- Récupérer les données avec `src/utils/get_data.py` et les stocker dans `data/raw/`.
-- Nettoyer les données avec `src/utils/clean_data.py` (si nécessaire) et les stocker dans `data/cleaned/`.
-
-### Création du dashboard
-
-- Construire un dashboard avec Python, pandas, Dash et Plotly.
-- Inclure au moins un histogramme et une représentation géolocalisée.
-- Au moins un graphique doit être dynamique.
-
-### Structuration du code
-
-- Structurer le code en fonctions, classes, modules et packages.
-- Documenter le code avec des commentaires et des docstrings.
-
-### Fichiers et répertoires
-
-- Créer un répertoire de travail local et initialiser un dépôt Git.
-- Structurer les fichiers (ex. `main.py`, `data/raw/`, `data/cleaned/`).
-
-### README
-
-- Rédiger un `README.md` avec les sections :
-    - User Guide (instructions de déploiement)
-    - Data (informations sur les données utilisées)
-    - Developer Guide (architecture du code, schéma Mermaid)
-    - Rapport d'analyse (conclusions extraites des données)
-    - Copyright (déclaration d'originalité)
-
-### requirements.txt
-
-- Construire manuellement le fichier `requirements.txt` avec la liste des packages nécessaires.
-
-### GitHub
-
-- Créer un dépôt public sur GitHub et relier le répertoire local au dépôt distant.
-
-### Vidéo de démonstration
-
-- Enregistrer une vidéo de démonstration du dashboard (3 minutes max) avec OBS Studio.
-
-## Points d’attention
-
-### Données
-
-- Le nombre d'observations doit être suffisamment grand (plusieurs centaines).
-- Au moins une variable doit être numérique et non catégorielle.
-- La géolocalisation doit être possible.
-
-### Code
-
-- Utiliser des versions récentes de Python, pandas, Dash et Plotly (au 1er septembre de l’année universitaire).
-- Structurer le code en packages, modules, classes et fonctions.
-- Utiliser des noms explicites, des commentaires et des docstrings.
-- Utiliser un linter comme Ruff.
-
-### Déploiement
-
-- Le dashboard doit s'exécuter sans erreurs dans la console et dans le navigateur.
-- Fournir un fichier `main.py` pour lancer le dashboard.
-- Inclure un jeu de données initial pour l'exécution hors ligne.
-
-### Git
-
-- Utiliser régulièrement Git et s’assurer d’une contribution équilibrée de tous les membres.
-- Configurer `user.name` et `user.email` avec les informations de l’ESIEE.
-
-### Rendu
-
-- Le dépôt doit être public.
-- Le dashboard doit être fonctionnel à la première tentative.
-Tâches générales
-----------------
-- ✅ Choisir le jeu de données (OpenAQ – qualité de l’air)
-- ✅ Réussir à accéder aux données via l’API REST (requêtes dynamiques)
-- Explorer et comprendre la structure des données (PM2.5, coordonnées, timestamps, etc.)
-- Bbliothèques pour :
-    - Plotly la création du dashboard et la visualisation
-- Concevoir la structure du dashboard (carte, histogramme, filtres interactifs, encart d’infos)
-- Afficher les données :
-    - au moins un histogramme
-    - une représentation géolocalisée (carte dynamique)
-- Rendre le dashboard interactif : changement de ville, pays ou période
-- Préparer la documentation du projet (README, requirements.txt, explications, attribution OpenAQ)
-- Créer la vidéo de démonstration du dashboard final
-
-
-Tâches techniques
------------------
-- ✅ Mettre en place l’appel API
-- Nettoyer et organiser les données avec pandas (tri, moyenne, formatage des dates)
-- Créer les filtres interactifs (ville, pays, type de polluant, période)
-- Construire la carte géographique avec les stations (points colorés selon PM2.5)
-- Construire l’histogramme dynamique montrant la variation du PM2.5 dans le temps
-- Afficher les indicateurs clés : valeur actuelle, date de mise à jour, source, coordonnées
-- Assembler le tout dans le dashboard web
-- Tester l’interactivité et les mises à jour dynamiques
-- Structurer le dépôt GitHub (code propre, arborescence claire, documentation)
-
-
-Choix du sujet : Choisir un sujet d'intérêt public (météo, environnement, etc.) et le faire valider par l'enseignant.
-Récupération des données :
-Identifier une source de données publiques Open Data.
-Récupérer les données avec get_data.py et les stocker dans data/raw/.
-Nettoyer les données avec clean_data.py (si nécessaire) et les stocker dans data/cleaned/.
-Création du Dashboard :
-Construire un dashboard avec Python, pandas, dash et plotly.
-Inclure au moins un histogramme et une représentation géolocalisée.
-Au moins un graphique doit être dynamique.
-Structuration du Code :
-Structurer le code en fonctions, classes, modules et packages.
-Documenter le code avec des commentaires et des docstrings.
-Création des Fichiers et Répertoires :
-Créer un répertoire de travail local et initialiser un dépôt Git.
-Structurer les fichiers dans différents répertoires (ex: main.py, data/raw/, data/cleaned/).
-Rédaction du README :
-Rédiger un fichier README.md en Markdown avec les sections suivantes :
-User Guide (instructions de déploiement)
-Data (informations sur les données utilisées)
-Developer Guide (architecture du code, utilisation de Mermaid pour le graphique)
-Rapport d'analyse (conclusions extraites des données)
-Copyright (déclaration d'originalité du code)
-Création du Fichier requirements.txt :
-Construire manuellement le fichier requirements.txt avec la liste des packages nécessaires.
-Enregistrement du projet sur Github :
-Créer un dépôt public sur GitHub.
-Relier le répertoire local au dépôt distant.
-Création de la Vidéo de Démonstration :
-Enregistrer une vidéo de démonstration du dashboard (3 minutes max) avec OBS Studio.
-Points d'Attention :
-
-Données :
-Le nombre d'observations doit être suffisamment grand (typiquement plusieurs centaines).
-Au moins une variable doit être numérique et non catégorielle.
-La géolocalisation doit être possible.
-Code :
-Utiliser les versions les plus récentes de Python, pandas, dash et plotly (au 1er septembre de l'année universitaire).
-Structurer le code en packages, modules, classes, fonctions.
-Utiliser des noms de variables explicites, des commentaires et des docstrings.
-Utiliser un linter comme ruff.
-Déploiement :
-Le dashboard doit s'exécuter sans erreurs dans la console et dans le navigateur.
-Fournir un fichier main.py pour lancer le dashboard.
-Inclure un jeu de données initial pour l'exécution hors ligne.
-Git :
-Utiliser régulièrement Git et s'assurer d'une contribution équilibrée de tous les membres.
-Configurer user.name et user.email avec les informations de l'ESIEE.
-Rendu :
-Le dépôt doit être public.
-Le dashboard doit être fonctionnel à la première tentative
+- Sujet d'intérêt public validé par l'enseignant
+- Source de données publiques Open Data
+- Données stockées dans `data/raw/` puis nettoyées dans `data/cleaned/`
+- Dashboard avec Python, pandas, Dash, Plotly
+- Au moins un histogramme et une carte géolocalisée dynamiques
+- Code structuré (fonctions, classes, modules, packages)
+- Documentation claire (README, docstrings, commentaires)
+- Fichiers bien organisés (`main.py`, `data/raw/`, `data/cleaned/`)
+- Fichier `requirements.txt` manuel
+- Dépôt GitHub public, contributions régulières
+- Vidéo de démonstration (3 min max)
+- Données : suffisamment d'observations, au moins une variable numérique, géolocalisation possible
+- Code : versions récentes, noms explicites, linter (Ruff)
+- Déploiement : exécution sans erreur, jeu de données initial fourni
+- Git : config user.name/user.email ESIEE, contributions équilibrées
+- Rendu : dépôt public, dashboard fonctionnel dès le premier essai
