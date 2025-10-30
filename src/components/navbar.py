@@ -1,6 +1,8 @@
 """
 Navigation component
 """
+
+"""
 from dash import html, dcc
 
 def create_navbar():
@@ -35,3 +37,4 @@ def create_navbar():
             ], style={'marginTop': '10px'})
         ], className='navbar', style={'display': 'flex', 'flexDirection': 'column', 'alignItems': 'center'})
     ])
+"""
