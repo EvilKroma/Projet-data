@@ -1,6 +1,6 @@
 from dash import Dash, html, dcc
 from dash.dependencies import Input, Output
-from src.components.navbar import create_navbar
+# from src.components.navbar import create_navbar
 from src.pages.simple_page import create_layout, update_station_info
 import dash_bootstrap_components as dbc
 
@@ -23,20 +23,13 @@ CONTENT_STYLE = {
 
 # Layout principal
 app.layout = html.Div([
-    create_navbar(),  # Barre de navigation (supposée bien faite)
-    html.Div([
-        html.H2("Tableau de bord des stations OpenAQ 🌍",
-                className="text-center text-info mb-4"),
-        create_layout()  # Contenu principal de la page
-    ], style=CONTENT_STYLE)
+    # create_navbar(),
+    create_layout()
 ])
 
-
-# Enregistrement du callback pour mettre à jour le tableau
+# Enregistrement du callback pour mettre à jour l'affichage JSON
 @app.callback(
-    [Output('station-info', 'children'),
-     Output('parameters-table', 'columns'),
-     Output('parameters-table', 'data')],
+    Output('json-display', 'children'),
     Input('station-input', 'value')
 )
 def update_callback(value):

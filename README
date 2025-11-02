@@ -1,0 +1,38 @@
+# Dashboard OpenAQ (Qualité de l'air)
+
+Ce projet consiste à créer un dashboard interactif basé sur les données de qualité de l'air provenant de l'API OpenAQ.
+
+## TODO général du projet
+
+- [x] Choisir le jeu de données (OpenAQ – qualité de l'air)
+- [x] Accéder aux données via l'API REST
+- [ ] Explorer et comprendre la structure des données (PM2.5, coordonnées, timestamps, etc.)
+- [ ] Nettoyer et organiser les données avec pandas (tri, moyenne, formatage des dates)
+- [ ] Concevoir la structure du dashboard (carte, histogramme, filtres interactifs, encart d'infos)
+- [ ] Créer les filtres interactifs (ville, pays, type de polluant, période)
+- [ ] Construire la carte géographique avec les stations (points colorés selon PM2.5)
+- [ ] Construire l’histogramme dynamique montrant la variation du PM2.5 dans le temps
+- [ ] Afficher les indicateurs clés : valeur actuelle, date de mise à jour, source, coordonnées
+- [ ] Assembler le tout dans le dashboard web (Dash/Plotly)
+- [ ] Tester l’interactivité et les mises à jour dynamiques
+- [ ] Préparer la documentation du projet (README, requirements.txt, explications, attribution OpenAQ)
+- [ ] Créer la vidéo de démonstration du dashboard final
+
+## Exigences et points d'attention
+
+- Sujet d'intérêt public validé par l'enseignant
+- Source de données publiques Open Data
+- Données stockées dans `data/raw/` puis nettoyées dans `data/cleaned/`
+- Dashboard avec Python, pandas, Dash, Plotly
+- Au moins un histogramme et une carte géolocalisée dynamiques
+- Code structuré (fonctions, classes, modules, packages)
+- Documentation claire (README, docstrings, commentaires)
+- Fichiers bien organisés (`main.py`, `data/raw/`, `data/cleaned/`)
+- Fichier `requirements.txt` manuel
+- Dépôt GitHub public, contributions régulières
+- Vidéo de démonstration (3 min max)
+- Données : suffisamment d'observations, au moins une variable numérique, géolocalisation possible
+- Code : versions récentes, noms explicites, linter (Ruff)
+- Déploiement : exécution sans erreur, jeu de données initial fourni
+- Git : config user.name/user.email ESIEE, contributions équilibrées
+- Rendu : dépôt public, dashboard fonctionnel dès le premier essai

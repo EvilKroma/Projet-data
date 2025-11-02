@@ -1,6 +1,4 @@
-"""
-Configuration du projet
-"""
+# Configuration du projet
 
 import os
 from dotenv import load_dotenv

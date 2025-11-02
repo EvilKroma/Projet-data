@@ -1,90 +1,57 @@
-"""
-Page d'accueil simple affichant les informations d'une station
-"""
-from dash import html, dcc, dash_table
-import pandas as pd
-from src.utils.get_data import fetch_station_data
-from config import DEFAULT_STATION_ID
+# Page simple pour fetch API et afficher JSON
+from dash import html, dcc
+import json
+from src.utils.get_data import fetch_and_save_station_data
 
+# Input pour l'ID de la station
 def create_station_form():
     return html.Div([
         html.Label("Entrez l'ID de la station :"),
         dcc.Input(
             id='station-input',
             type='number',
-            value=DEFAULT_STATION_ID,
+            placeholder="Ex: 2005",
             min=1,
-            debounce=True
+            debounce=True,
         )
     ], style={'textAlign': 'center', 'marginBottom': '20px'})
 
-def create_data_tables():
+# Affichage du JSON
+def create_json_display():
     return html.Div([
-        html.Div(id='station-info'),
-        dash_table.DataTable(
-            id='parameters-table',
-            columns=[],
-            data=[],
-            style_cell={'textAlign': 'left', 'whiteSpace': 'normal'},
-            style_header={'fontWeight': 'bold'},
-            page_size=10
-        )
+        html.Div(id='json-display')
     ])
 
+# Mise en page principale
 def create_layout():
     return html.Div([
         create_station_form(),
-        create_data_tables()
+        create_json_display()
     ])
 
-# Les outputs et inputs seront définis dans le callback principal
+# Fonction pour récupérer et afficher les données JSON
 def update_station_info(station_id):
     if not station_id:
-        return "Veuillez entrer un ID de station.", [], []
+        return html.Div("Veuillez entrer un ID de station.", style={'textAlign': 'center', 'margin': '20px'})
 
-    location = fetch_station_data(station_id)
-    if not location:
-        return "Erreur: Impossible de récupérer les données de la station.", [], []
-
-    def format_value(key, value):
-        if key == 'sensors' and isinstance(value, list):
-            return "\n".join(
-                " | ".join(f"{k}: {v}" for k, v in sensor.items() 
-                if k in ['id', 'name', 'parameter', 'manufacturer', 'modelName'])
-                for sensor in value
-            )
-        elif isinstance(value, (dict, list)):
-            return str(value)
-        return str(value)
-
-    # Données de la station
-    selected_fields = ['id', 'name', 'locality', 'country', 'sensors', 'coordinates', 
-                      'datetimeFirst', 'datetimeLast']
-    station_info = {
-        key: format_value(key, location.get(key, 'N/A'))
-        for key in selected_fields
-        if key in location
-    }
+    # Fetch API et sauvegarde en JSON
+    data, filepath = fetch_and_save_station_data(station_id)
     
-    # Création du tableau d'information
-    info_df = pd.DataFrame([station_info]).transpose()
-    info_df.columns = ['Valeur']
-    info_df.index.name = 'Propriété'
-    info_table = dash_table.DataTable(
-        data=info_df.reset_index().to_dict('records'),
-        columns=[
-            {"name": "Propriété", "id": "Propriété"},
-            {"name": "Valeur", "id": "Valeur", "presentation": "markdown"}
-        ],
-        style_cell={'textAlign': 'left', 'whiteSpace': 'normal'},
-        style_header={'fontWeight': 'bold'},
-        page_size=20
-    )
-
-    # Préparation du tableau des paramètres
-    df_parameters = pd.DataFrame(location.get("parameters", []))
-    if df_parameters.empty:
-        return info_table, [], []
-
-    param_columns = [{"name": col.capitalize(), "id": col} for col in df_parameters.columns]
-    return info_table, param_columns, df_parameters.to_dict('records')
+    if not data:
+        return html.Div("Erreur: Impossible de récupérer les données de la station.", style={'textAlign': 'center', 'margin': '20px', 'color': 'red'})
+    
+    # Affichage des données JSON
+    json_content = json.dumps(data, indent=2, ensure_ascii=False)
+    
+    return html.Div([
+        html.H3(f"Données de la station {station_id}", style={'textAlign': 'center'}),
+        html.P(f"Fichier sauvegardé dans ./data/raw/ ", style={'textAlign': 'center', 'fontStyle': 'italic'}),
+        html.Pre(json_content, style={
+            'backgroundColor': '#f5f5f5',
+            'padding': '20px',
+            'border': '1px solid #ddd',
+            'borderRadius': '5px',
+            'overflow': 'auto',
+            'maxHeight': '500px'
+        })
+    ])
