@@ -1,0 +1,110 @@
+{
+  "id": 2006,
+  "name": "FES Aragon",
+  "locality": "MEXICO STATE",
+  "timezone": "America/Mexico_City",
+  "country": {
+    "id": 157,
+    "code": "MX",
+    "name": "Mexico"
+  },
+  "owner": {
+    "id": 4,
+    "name": "Unknown Governmental Organization"
+  },
+  "provider": {
+    "id": 119,
+    "name": "AirNow"
+  },
+  "isMobile": false,
+  "isMonitor": true,
+  "instruments": [
+    {
+      "id": 2,
+      "name": "Government Monitor"
+    }
+  ],
+  "sensors": [
+    {
+      "id": 5077698,
+      "name": "co ppm",
+      "parameter": {
+        "id": 8,
+        "name": "co",
+        "units": "ppm",
+        "displayName": "CO"
+      }
+    },
+    {
+      "id": 5077792,
+      "name": "no2 ppm",
+      "parameter": {
+        "id": 7,
+        "name": "no2",
+        "units": "ppm",
+        "displayName": "NO₂"
+      }
+    },
+    {
+      "id": 5077701,
+      "name": "o3 ppm",
+      "parameter": {
+        "id": 10,
+        "name": "o3",
+        "units": "ppm",
+        "displayName": "O₃"
+      }
+    },
+    {
+      "id": 5077876,
+      "name": "pm25 µg/m³",
+      "parameter": {
+        "id": 2,
+        "name": "pm25",
+        "units": "µg/m³",
+        "displayName": "PM2.5"
+      }
+    },
+    {
+      "id": 5077857,
+      "name": "so2 ppm",
+      "parameter": {
+        "id": 9,
+        "name": "so2",
+        "units": "ppm",
+        "displayName": "SO₂"
+      }
+    }
+  ],
+  "coordinates": {
+    "latitude": 19.4525,
+    "longitude": -99.086
+  },
+  "licenses": [
+    {
+      "id": 33,
+      "name": "US Public Domain",
+      "attribution": {
+        "name": "Unknown Governmental Organization",
+        "url": null
+      },
+      "dateFrom": "2016-01-30",
+      "dateTo": null
+    }
+  ],
+  "bounds": [
+    -99.086,
+    19.4525,
+    -99.086,
+    19.4525
+  ],
+  "distance": null,
+  "datetimeFirst": {
+    "utc": "2022-10-04T18:00:00Z",
+    "local": "2022-10-04T13:00:00-05:00"
+  },
+  "datetimeLast": {
+    "utc": "2023-08-30T12:00:00Z",
+    "local": "2023-08-30T06:00:00-06:00"
+  }
+}

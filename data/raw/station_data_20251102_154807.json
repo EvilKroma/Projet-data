@@ -1,0 +1,100 @@
+{
+  "id": 2005,
+  "name": "Napa - Jefferson St",
+  "locality": null,
+  "timezone": "America/Los_Angeles",
+  "country": {
+    "id": 155,
+    "code": "US",
+    "name": "United States"
+  },
+  "owner": {
+    "id": 4,
+    "name": "Unknown Governmental Organization"
+  },
+  "provider": {
+    "id": 119,
+    "name": "AirNow"
+  },
+  "isMobile": false,
+  "isMonitor": true,
+  "instruments": [
+    {
+      "id": 2,
+      "name": "Government Monitor"
+    }
+  ],
+  "sensors": [
+    {
+      "id": 15633,
+      "name": "co ppm",
+      "parameter": {
+        "id": 8,
+        "name": "co",
+        "units": "ppm",
+        "displayName": "CO"
+      }
+    },
+    {
+      "id": 15634,
+      "name": "no2 ppm",
+      "parameter": {
+        "id": 7,
+        "name": "no2",
+        "units": "ppm",
+        "displayName": "NO₂"
+      }
+    },
+    {
+      "id": 3558,
+      "name": "o3 ppm",
+      "parameter": {
+        "id": 10,
+        "name": "o3",
+        "units": "ppm",
+        "displayName": "O₃"
+      }
+    },
+    {
+      "id": 3563,
+      "name": "pm25 µg/m³",
+      "parameter": {
+        "id": 2,
+        "name": "pm25",
+        "units": "µg/m³",
+        "displayName": "PM2.5"
+      }
+    }
+  ],
+  "coordinates": {
+    "latitude": 38.3108,
+    "longitude": -122.295
+  },
+  "licenses": [
+    {
+      "id": 33,
+      "name": "US Public Domain",
+      "attribution": {
+        "name": "Unknown Governmental Organization",
+        "url": null
+      },
+      "dateFrom": "2016-01-30",
+      "dateTo": null
+    }
+  ],
+  "bounds": [
+    -122.295,
+    38.3108,
+    -122.295,
+    38.3108
+  ],
+  "distance": null,
+  "datetimeFirst": {
+    "utc": "2016-03-06T20:00:00Z",
+    "local": "2016-03-06T12:00:00-08:00"
+  },
+  "datetimeLast": {
+    "utc": "2018-05-14T19:00:00Z",
+    "local": "2018-05-14T12:00:00-07:00"
+  }
+}
