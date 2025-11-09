@@ -4,7 +4,7 @@ from dash import html, dcc
 from dash.dependencies import Input, Output
 from src.utils.get_data import load_station_json, fetch_measurements
 
-# Récupération et traitement des données
+# Récupération des données via id_station entré par le uer
 def get_data_by_station_id(station_id):
     station_data = load_station_json(station_id)
     if not station_data:
@@ -31,6 +31,7 @@ def get_data_by_station_id(station_id):
     
     return data
 
+#je transforme le Json en dataframe pour traiter les données
 def data_to_dataframe(json_data):
     if not json_data:
         return pd.DataFrame()

@@ -3,14 +3,14 @@
 import os
 from dotenv import load_dotenv
 
-# Chargement des variables d'environnement
+# Chargement du .env
 load_dotenv()
 
 # Configuration de l'API
 API_BASE_URL = "https://api.openaq.org/v3"
 API_KEY = os.getenv("API_KEY")
 
-# Configuration par défaut
+# Station 2005 par défaut / comme exemple
 DEFAULT_STATION_ID = 2005
 
 # Configuration des chemins
