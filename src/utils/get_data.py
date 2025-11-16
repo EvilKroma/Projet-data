@@ -81,10 +81,8 @@ def fetch_measurements(station_id, limit=1000, date_from=None):
     
     params = {"limit": limit, "date_from": date_from}
     
-    # A nettoyer car trop de requetes
+    # Requetes GET 
     endpoints = [
-        ({"location_id": station_id}, f"{API_BASE_URL}/measurements"),
-        ({"locations_id": station_id}, f"{API_BASE_URL}/measurements"),
         (params, f"{API_BASE_URL}/locations/{station_id}/measurements")
     ]
     
@@ -100,7 +98,7 @@ def fetch_measurements(station_id, limit=1000, date_from=None):
         except requests.exceptions.RequestException:
             continue
     
-    # A nettoyer egalement car trop sd'instructions dans la console
+    # Fallback pour une mesure récente meme si mon code échoue
     try:
         response = requests.get(
             f"{API_BASE_URL}/locations/{station_id}/latest",
